@@ -1,0 +1,18 @@
+.propietarios-container {
+  display: flex;
+  height: 80vh;
+  font-size: 40px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  border: 8px dashed #c91c1c;
+}
+.arrendatarios-container {
+  display: flex;
+  height: 80vh;
+  font-size: 40px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  border: 8px dashed #1c87c9;
+}
