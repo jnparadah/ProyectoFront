@@ -30,6 +30,12 @@ import { TreeSchematicComponent } from './components/schematics/tree-schematic/t
 import { MatTreeModule } from '@angular/material/tree';
 import { AvatarModule } from 'ngx-avatars';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormArrendatarioComponent } from './components/Forms/form-arrendatario/form-arrendatario.component';
+import { FormPropietariosComponent } from './components/Forms/form-propietarios/form-propietarios.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +50,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ArreglosLocativosComponent,
     TableSchematicComponent,
     DashboardSchematicComponent,
-    TreeSchematicComponent
+    TreeSchematicComponent,
+    FormArrendatarioComponent,
+    FormPropietariosComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +73,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTreeModule,
     AvatarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
