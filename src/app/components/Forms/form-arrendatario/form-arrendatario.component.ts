@@ -14,10 +14,10 @@ export class FormArrendatarioComponent {
   private fb = inject(FormBuilder);
   addressForm = this.fb.group({
     Cedula: [null, Validators.required],
-    Nombre: [null, Validators.required],
-    Apellido: [null, Validators.required],
+    Nombres: [null, Validators.required],
+    Apellidos: [null, Validators.required],
     Telefono: [null, Validators.required],
-    Correo: null,
+    Correo: [null, Validators.required],
   });
 
   hasUnitNumber = false;

@@ -17,14 +17,12 @@ export class ArrendatariosReadComponent implements OnInit {
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  //constructor(public apiService: ApiService, public dialog: MatDialog) {}
   constructor(public apiService: ApiService) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
-    //this.dataSource = new MatTableDataSource();
-    //this.GetArrendatarios()
+
     this.apiService.Get("Arrendatarios").then((res) => {
       for (let index = 0; index < res.length; index++) {
         this.loadTable([res[index]])
@@ -34,11 +32,7 @@ export class ArrendatariosReadComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
-  /*
-  public GetArrendatarios(){
-    this.apiService.Get("Arrendatarios");
-  }
-*/
+
   loadTable(data: any[]) {
     this.displayedColumns = [];
     for (let colum in data[0]) {
@@ -47,8 +41,8 @@ export class ArrendatariosReadComponent implements OnInit {
     this.displayedColumns.push('Acciones');
   }
 
-  openDialog(){
-    //this.dialog.open(FormArrendatarioComponent,{
+  openDialog() {
+    //this.dialog.open(FormArrendatarioComponent, {
     //});
   }
 
