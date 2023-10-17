@@ -1,7 +1,7 @@
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
-      <mat-card-title>REGISTRO </mat-card-title>
+      <mat-card-title>Nuevo Arrendatario </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="row">
@@ -9,7 +9,7 @@
           <mat-form-field class="full-width">
             <input matInput placeholder="Cedula" formControlName="Cedula">
             <mat-error *ngIf="addressForm.controls['Cedula'].hasError('required')">
-              Cedula<strong>obligatorio</strong>
+              Cedula <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -17,19 +17,17 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Nombre" formControlName="Nombre">
-            <mat-error *ngIf="addressForm.controls['Nombre'].hasError('required')">
-              Nombre<strong>obligatorio</strong>
+            <input matInput placeholder="Nombres" formControlName="Nombres">
+            <mat-error *ngIf="addressForm.controls['Nombres'].hasError('required')">
+              Nombre <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
-      </div>
-      <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Apellido" formControlName="Apellido">
-            <mat-error *ngIf="addressForm.controls['Apellido'].hasError('required')">
-              Apellido<strong>obligatorio</strong>
+            <input matInput placeholder="Apellidos" formControlName="Apellidos">
+            <mat-error *ngIf="addressForm.controls['Apellidos'].hasError('required')">
+              Apellido <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -39,17 +37,15 @@
           <mat-form-field class="full-width">
             <input matInput placeholder="Telefono" formControlName="Telefono">
             <mat-error *ngIf="addressForm.controls['Telefono'].hasError('required')">
-              Telefono<strong>obligatorio</strong>
+              Telefono <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
-      </div>
-      <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Correo" formControlName="Correo">
             <mat-error *ngIf="addressForm.controls['Correo'].hasError('required')">
-              Correo<strong>obligatorio</strong>
+              Correo <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>

@@ -35,6 +35,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormArrendatarioComponent } from './components/Forms/form-arrendatario/form-arrendatario.component';
 import { FormPropietariosComponent } from './components/Forms/form-propietarios/form-propietarios.component';
+import { FormPagosComponent } from './components/Forms/form-pagos/form-pagos.component';
+import { FormProyectosComponent } from './components/Forms/form-proyectos/form-proyectos.component';
+import { FormArriendosComponent } from './components/Forms/form-arriendos/form-arriendos.component';
+import { FormInmueblesComponent } from './components/Forms/form-inmuebles/form-inmuebles.component';
+import { FormArreglosLocativosComponent } from './components/Forms/form-arreglos-locativos/form-arreglos-locativos.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -53,10 +59,16 @@ import { FormPropietariosComponent } from './components/Forms/form-propietarios/
     TreeSchematicComponent,
     FormArrendatarioComponent,
     FormPropietariosComponent,
+    FormPagosComponent,
+    FormProyectosComponent,
+    FormArriendosComponent,
+    FormInmueblesComponent,
+    FormArreglosLocativosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatDatepickerModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,

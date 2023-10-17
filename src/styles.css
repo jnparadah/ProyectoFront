@@ -28,3 +28,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .opcion a:hover{
     color: rgb(32, 32, 32);
   }
+
+  .btn-new {
+    background-color: #3d468f; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto al centro */
+    text-decoration: none; /* Sin subrayado en el texto */
+    display: inline-block; /* Mostrar como un elemento en línea */
+    font-size: 16px; /* Tamaño del texto */
+    margin: 10px 2px; /* Márgenes externos */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .btn-new:hover {
+    background-color: #4550a0; /* Cambiar color de fondo al pasar sobre el botón */
+  }
