@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { FormArrendatarioComponent } from '../Forms/form-arrendatario/form-arrendatario.component';
+
 
 @Component({
   selector: 'app-arrendatarios-read',
@@ -10,18 +13,18 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./arrendatarios-read.component.css']
 })
 export class ArrendatariosReadComponent implements OnInit {
-
   displayedColumns: string[] = [];
+  dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: MatTableDataSource<any>
-
+  //constructor(public apiService: ApiService, public dialog: MatDialog) {}
   constructor(public apiService: ApiService) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
-
+    //this.dataSource = new MatTableDataSource();
+    //this.GetArrendatarios()
     this.apiService.Get("Arrendatarios").then((res) => {
       for (let index = 0; index < res.length; index++) {
         this.loadTable([res[index]])
@@ -31,13 +34,22 @@ export class ArrendatariosReadComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
-
+  /*
+  public GetArrendatarios(){
+    this.apiService.Get("Arrendatarios");
+  }
+*/
   loadTable(data: any[]) {
     this.displayedColumns = [];
     for (let colum in data[0]) {
       this.displayedColumns.push(colum)
     }
     this.displayedColumns.push('Acciones');
+  }
+
+  openDialog(){
+    //this.dialog.open(FormArrendatarioComponent,{
+    //});
   }
 
   applyFilter(event: Event) {
@@ -48,5 +60,4 @@ export class ArrendatariosReadComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }

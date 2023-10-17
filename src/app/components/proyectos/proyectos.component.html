@@ -1,11 +1,9 @@
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
-</mat-form-field>
-
-<div class="mat-elevation-z8 bottom">
+<div class="mat-elevation-z8 bottom table">
   <table mat-table [dataSource]="dataSource" matSort>
-
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
     <div matColumnDef="{{disCol}}" *ngFor="let disCol of displayedColumns">
       <div *ngIf="disCol!='Acciones'">
         <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
