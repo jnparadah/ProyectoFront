@@ -41,6 +41,7 @@ import { FormArriendosComponent } from './components/Forms/form-arriendos/form-a
 import { FormInmueblesComponent } from './components/Forms/form-inmuebles/form-inmuebles.component';
 import { FormArreglosLocativosComponent } from './components/Forms/form-arreglos-locativos/form-arreglos-locativos.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

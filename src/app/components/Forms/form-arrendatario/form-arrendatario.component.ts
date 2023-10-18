@@ -20,8 +20,6 @@ export class FormArrendatarioComponent {
     Correo: [null, Validators.required],
   });
 
-  hasUnitNumber = false;
-
 onSubmit(): void {
   Swal.fire({
     title: 'Error!',

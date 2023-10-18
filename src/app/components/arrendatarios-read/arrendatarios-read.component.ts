@@ -13,37 +13,25 @@ import { FormArrendatarioComponent } from '../Forms/form-arrendatario/form-arren
   styleUrls: ['./arrendatarios-read.component.css']
 })
 export class ArrendatariosReadComponent implements OnInit {
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(public apiService: ApiService) {
+  constructor(public apiService: ApiService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
 
-    this.apiService.Get("Arrendatarios").then((res) => {
-      for (let index = 0; index < res.length; index++) {
-        this.loadTable([res[index]])
-      }
+    this.apiService.Get("Arrendatarios").then((res) => {      
       this.dataSource.data = res
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
-  loadTable(data: any[]) {
-    this.displayedColumns = [];
-    for (let colum in data[0]) {
-      this.displayedColumns.push(colum)
-    }
-    this.displayedColumns.push('Acciones');
-  }
-
   openDialog() {
-    //this.dialog.open(FormArrendatarioComponent, {
-    //});
+    this.dialog.open(FormArrendatarioComponent, {});
   }
 
   applyFilter(event: Event) {
