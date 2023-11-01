@@ -16,17 +16,14 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ArriendoComponent } from './components/arriendo/arriendo.component';
 import { InmuebleComponent } from './components/inmueble/inmueble.component';
 import { ArreglosLocativosComponent } from './components/arreglos-locativos/arreglos-locativos.component';
-import { TableSchematicComponent } from './components/schematics/table-schematic/table-schematic.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { DashboardSchematicComponent } from './components/schematics/dashboard-schematic/dashboard-schematic.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
-import { TreeSchematicComponent } from './components/schematics/tree-schematic/tree-schematic.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { AvatarModule } from 'ngx-avatars';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -55,9 +52,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     ArriendoComponent,
     InmuebleComponent,
     ArreglosLocativosComponent,
-    TableSchematicComponent,
-    DashboardSchematicComponent,
-    TreeSchematicComponent,
     FormArrendatarioComponent,
     FormPropietariosComponent,
     FormPagosComponent,
