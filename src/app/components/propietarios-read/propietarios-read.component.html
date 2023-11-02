@@ -14,8 +14,8 @@
       <div *ngIf="disCol=='Acciones'">
         <th mat-header-cell *matHeaderCellDef>{{disCol}}</th>
         <td mat-cell *matCellDef="let row">
-          <a class="opcion"><i class='bx bxs-edit'></i></a>
-          <a class="opcion"><i class='bx bxs-trash' ></i></a>
+          <button class="opcion" ><i class='bx bxs-edit'></i></button>
+          <button class="opcion" (click)="delRegistro(row)"><i class='bx bxs-trash' ></i></button>
         </td>
       </div>
     </div>

@@ -12,7 +12,7 @@ import { FormArreglosLocativosComponent } from '../Forms/form-arreglos-locativos
   styleUrls: ['./arreglos-locativos.component.css']
 })
 export class ArreglosLocativosComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
+  displayedColumns: string[] = ['arreglo', 'fechaInicio', 'fechaFin', 'observacion', 'Acciones'];
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -22,7 +22,7 @@ export class ArreglosLocativosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.apiService.Get("Proyectos").then((res) => {      
+    this.apiService.Get("ArregloLocativos").then((res) => {      
       this.dataSource.data = res
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

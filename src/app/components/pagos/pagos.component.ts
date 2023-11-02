@@ -12,7 +12,7 @@ import { FormPagosComponent } from '../Forms/form-pagos/form-pagos.component';
   styleUrls: ['./pagos.component.css']
 })
 export class PagosComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
+  displayedColumns: string[] = ['reciboCaja', 'factura', 'abono', 'fecha', 'Acciones'];
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
