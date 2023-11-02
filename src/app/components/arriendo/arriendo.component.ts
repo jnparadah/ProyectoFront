@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { FormArriendosComponent } from '../Forms/form-arriendos/form-arriendos.component';
 
 @Component({
   selector: 'app-arriendo',
@@ -10,34 +12,25 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./arriendo.component.css']
 })
 export class ArriendoComponent implements OnInit {
-
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
+  dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: MatTableDataSource<any>;
-
-  constructor(public apiService: ApiService) {
+  constructor(public apiService: ApiService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
 
-    this.apiService.Get("ContratoArriendos").then((res) => {
-      for (let index = 0; index < res.length; index++) {
-        this.loadTable([res[index]])
-      }
+    this.apiService.Get("Arriendos").then((res) => {      
       this.dataSource.data = res
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
-  loadTable(data: any[]) {
-    this.displayedColumns = [];
-    for (let colum in data[0]) {
-      this.displayedColumns.push(colum)
-    }
-    this.displayedColumns.push('Acciones');
+  openDialog() {
+    this.dialog.open(FormArriendosComponent, {});
   }
 
   applyFilter(event: Event) {
@@ -48,5 +41,4 @@ export class ArriendoComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }

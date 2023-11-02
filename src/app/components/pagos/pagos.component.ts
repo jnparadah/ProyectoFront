@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { FormPagosComponent } from '../Forms/form-pagos/form-pagos.component';
 
 @Component({
   selector: 'app-pagos',
@@ -10,34 +12,25 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./pagos.component.css']
 })
 export class PagosComponent implements OnInit {
-
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
+  dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: MatTableDataSource<any>
-
-  constructor(public apiService: ApiService) {
+  constructor(public apiService: ApiService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
 
-    this.apiService.Get("Pagos").then((res) => {
-      for (let index = 0; index < res.length; index++) {
-        this.loadTable([res[index]])
-      }
+    this.apiService.Get("Pagos").then((res) => {      
       this.dataSource.data = res
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
-  loadTable(data: any[]) {
-    this.displayedColumns = [];
-    for (let colum in data[0]) {
-      this.displayedColumns.push(colum)
-    }
-    this.displayedColumns.push('Acciones');
+  openDialog() {
+    this.dialog.open(FormPagosComponent, {});
   }
 
   applyFilter(event: Event) {

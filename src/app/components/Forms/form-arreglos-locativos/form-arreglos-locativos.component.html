@@ -14,36 +14,36 @@
           </mat-form-field>
         </div>
         <div class="col">
-          <mat-form-field>
-            <mat-label>Fecha Inicio Arreglo</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field>
-            <mat-label>Fecha Fin Arreglo</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Estado Arreglo" formControlName="EstadoArreglo"></textarea>
-            <mat-error *ngIf="addressForm.controls['EstadoArreglo'].hasError('required')">
-              Estado <strong>requerido</strong>
+            <input matInput placeholder="Fecha Inicio Arreglo" formControlName="Fecha1">
+            <mat-error *ngIf="addressForm.controls['Fecha1'].hasError('required')">
+              Fecha Inicio <strong>requerido</strong>
             </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Observaciones" formControlName="Observaciones"></textarea>
+            <input matInput placeholder="Fecha Fin Arreglo" formControlName="Fecha2">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="Estado Arreglo">
+              <mat-option value="Abierto">Abierto</mat-option>
+              <mat-option value="En proceso">En proceso</mat-option>
+              <mat-option value="Cerrado">Cerrado</mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['EstadoArreglo'].hasError('required')">
+              El Tipo <strong>requerido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Observaciones" formControlName="Observaciones">
             <mat-error *ngIf="addressForm.controls['Observaciones'].hasError('required')">
               Observaciones <strong>requerido</strong>
             </mat-error>
@@ -52,7 +52,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" type="submit">Crear</button>
     </mat-card-actions>
   </mat-card>
 </form>

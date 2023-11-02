@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { FormInmueblesComponent } from '../Forms/form-inmuebles/form-inmuebles.component';
 
 @Component({
   selector: 'app-inmueble',
@@ -10,34 +12,25 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./inmueble.component.css']
 })
 export class InmuebleComponent implements OnInit {
-
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
+  dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: MatTableDataSource<any>
-
-  constructor(public apiService: ApiService) {
+  constructor(public apiService: ApiService, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
-    
-    this.apiService.Get("Arrendatarios").then((res) => {
-      for (let index = 0; index < res.length; index++) {
-        this.loadTable([res[index]])
-      }
+
+    this.apiService.Get("Inmuelbes").then((res) => {      
       this.dataSource.data = res
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
 
-  loadTable(data: any[]) {
-    this.displayedColumns = [];
-    for (let colum in data[0]) {
-      this.displayedColumns.push(colum)
-    }
-    this.displayedColumns.push('Actions');
+  openDialog() {
+    this.dialog.open(FormInmueblesComponent, {});
   }
 
   applyFilter(event: Event) {

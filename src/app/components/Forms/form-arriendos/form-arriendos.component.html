@@ -1,65 +1,57 @@
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
-      <mat-card-title>CONTRATOS DE ARRENDAMIENTO</mat-card-title>
+      <mat-card-title>Nuevo Arrendatario </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="CedulaArrendatario" formControlName="CedulaArrendatario">
+            <input matInput placeholder="Numero Contrato" formControlName="Contrato">
+            <mat-error *ngIf="addressForm.controls['Contrato'].hasError('required')">
+              Numero Contrato <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Cedula Arrendatario" formControlName="CedulaArrendatario">
+            <mat-error *ngIf="addressForm.controls['CedulaArrendatario'].hasError('required')">
+              Cedula Arrendatario <strong>obligatorio</strong>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Numero Contrato" formControlName="id_contrato">
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field>
-            <mat-label>Fecha Pago</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input matInput placeholder="Fecha de Pago" formControlName="FechaPago">
+            <mat-error *ngIf="addressForm.controls['FechaPago'].hasError('required')">
+              Fecha de Pago <strong>obligatorio</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Valor Canon" formControlName="VrCanon">
             <mat-error *ngIf="addressForm.controls['VrCanon'].hasError('required')">
-              Valor Canon <strong>required</strong>
+              Valor Canon <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
-      </div>
-      <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <textarea matInput placeholder="Valor Administracion" formControlName="VrAdmon"></textarea>
-            <mat-error *ngIf="addressForm.controls['VrAdmon'].hasError('required')">
-              Valor Admon <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <textarea matInput placeholder="Recibo de Caja" formControlName="ReciboCaja"></textarea>
+            <input matInput placeholder="Recibo de Caja" formControlName="ReciboCaja">
             <mat-error *ngIf="addressForm.controls['ReciboCaja'].hasError('required')">
-              Recibo de caja <strong>required</strong>
+              Recibo de Caja <strong>obligatorio</strong>
             </mat-error>
           </mat-form-field>
         </div>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" type="submit">Crear</button>
     </mat-card-actions>
   </mat-card>
+
 </form>

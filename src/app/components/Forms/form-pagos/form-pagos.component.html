@@ -22,14 +22,13 @@
           </mat-form-field>
         </div>
         <div class="col">
-          <mat-form-field>
-            <mat-label>Fecha Pago</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Fecha de Pago" formControlName="Fecha">
+            <mat-error *ngIf="addressForm.controls['Fecha'].hasError('required')">
+              Fecha Pago <strong>requerida</strong>
+            </mat-error>
           </mat-form-field>
-        </div>
+        </div> 
       </div>
       <div class="row">
         <div class="col">
@@ -41,12 +40,11 @@
           </mat-form-field>
         </div>
         <div class="col">
-          <mat-form-field>
-            <mat-label>Fecha Abono Pago</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Fecha Abono Pago" formControlName="Fecha2">
+            <mat-error *ngIf="addressForm.controls['Fecha2'].hasError('required')">
+              Fecha Abono Pago <strong>requerida</strong>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
