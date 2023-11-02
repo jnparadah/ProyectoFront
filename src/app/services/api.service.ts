@@ -8,7 +8,7 @@ export class ApiService {
 
   constructor(public api: HttpClient) { }
 
-  apiUrl = "https://localhost:7011/api/";
+  apiUrl = "https://localhost:7164/api/";
 
   public async Get(gatewayController: string) {
     var respo: any;
@@ -21,7 +21,7 @@ export class ApiService {
   }
 
   public async post(gatewayController: string, body: any) {
-    return await this.api.post(this.apiUrl + gatewayController, body).subscribe((res) => { })
+    return await this.api.post(this.apiUrl + gatewayController, body).toPromise().then((res) => {})
   }
 
   public async delete(gatewayController: string, idBody: string) {

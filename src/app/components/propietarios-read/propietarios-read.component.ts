@@ -4,8 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
-import { FormProyectosComponent } from '../Forms/form-proyectos/form-proyectos.component';
 import { FormPropietariosComponent } from '../Forms/form-propietarios/form-propietarios.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-propietarios-read',
@@ -31,6 +31,36 @@ export class PropietariosReadComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
+  }
+
+  delRegistro(element: any){
+
+    const Id= element.Cedula
+
+    if(element !== undefined){
+      this.apiService.delete('Propietarios', String(Id)).then((res) => {
+        if (res == undefined) {
+          Swal.fire({
+            title: 'Eliminación Realizada',
+            text: 'El propietario ha sido eliminado',
+            icon: 'success',
+            color: '#7b1fa2',
+          })
+        }
+      }).catch(error => {
+        Swal.fire(
+          `Status error ${error.status}`,
+          `Message: ${error.message}`,
+          `error`
+        )
+      })
+    }else {
+      Swal.fire(
+        'Ingresar los datos',
+        'Por favor ingrese todos los campos requeridos',
+        'error'
+      )
+    }
   }
 
   openDialog() {

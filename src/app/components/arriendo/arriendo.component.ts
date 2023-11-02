@@ -12,7 +12,7 @@ import { FormArriendosComponent } from '../Forms/form-arriendos/form-arriendos.c
   styleUrls: ['./arriendo.component.css']
 })
 export class ArriendoComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
+  displayedColumns: string[] = ['numeroContrato', 'inicio', 'nombreArrendatario', 'apellidoArrendatario', 'canon', "admon",  'Acciones'];
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -22,7 +22,7 @@ export class ArriendoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.apiService.Get("Arriendos").then((res) => {      
+    this.apiService.Get("ContratoArriendos").then((res) => {      
       this.dataSource.data = res
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

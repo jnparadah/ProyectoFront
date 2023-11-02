@@ -12,7 +12,7 @@ import { FormInmueblesComponent } from '../Forms/form-inmuebles/form-inmuebles.c
   styleUrls: ['./inmueble.component.css']
 })
 export class InmuebleComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
+  displayedColumns: string[] = ['matricula', 'inmueble', 'nomenclatura', 'area', 'nombre', 'apellido', 'telefono', 'Acciones'];
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -22,7 +22,7 @@ export class InmuebleComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.apiService.Get("Inmuelbes").then((res) => {      
+    this.apiService.Get("Inmuebles").then((res) => {      
       this.dataSource.data = res
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

@@ -13,7 +13,7 @@ import { FormProyectosComponent } from '../Forms/form-proyectos/form-proyectos.c
 })
 
 export class ProyectosComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'Acciones'];
+  displayedColumns: string[] = ['matricula', 'proyecto', 'direccion', 'estrato', 'escritura', 'administrador', 'telefono', 'correo', 'Acciones'];
   dataSource: MatTableDataSource<any>
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
